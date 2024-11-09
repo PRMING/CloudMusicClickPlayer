@@ -150,7 +150,6 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
-
                     </Grid>
                 </Border>
             </StackPanel>

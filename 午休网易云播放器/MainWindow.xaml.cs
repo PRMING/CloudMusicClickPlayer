@@ -1,5 +1,9 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using Hardcodet.Wpf.TaskbarNotification;
 using System.Windows;
+using Windows.Foundation.Collections;
+using Microsoft.Toolkit.Uwp.Notifications;
+using 午休网易云播放器.Class;
 
 namespace 午休网易云播放器
 {
@@ -8,9 +12,15 @@ namespace 午休网易云播放器
     /// </summary>
     public partial class MainWindow : Window
     {
+        // 托盘图标
+        private TaskbarIcon _tb;
+
         public MainWindow()
         {
             StaticData.SetStaticData();
+
+            // 启动托盘图标
+            _tb = (TaskbarIcon)FindResource("Taskbar");
 
             InitializeComponent();
 
@@ -22,9 +32,24 @@ namespace 午休网易云播放器
 
             // 窗体居中
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            // 关闭窗口 触发事件
+            Closing += WindowClosing;
         }
 
-        private void HomePageButton_Click(object sender, RoutedEventArgs e)
+        // 关闭窗口 触发的事件
+        private void WindowClosing( object sender, CancelEventArgs e )
+        {
+            // 通知
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddArgument("conversationId", 9813)
+                .AddText("窗口已收到托盘")
+                .AddText("点击恢复恢复窗口")
+                .Show();
+        }
+
+private void HomePageButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Source = new Uri("Pages/HomePage.xaml", UriKind.RelativeOrAbsolute);
         }

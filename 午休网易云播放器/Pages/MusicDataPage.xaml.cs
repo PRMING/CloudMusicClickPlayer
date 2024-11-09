@@ -1,6 +1,6 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using 午休网易云播放器.Class;
 
 namespace 午休网易云播放器.Pages
 {

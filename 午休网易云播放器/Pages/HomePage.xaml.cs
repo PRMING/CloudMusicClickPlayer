@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System.Timers;
+using Microsoft.Toolkit.Uwp.Notifications;
+using System.Windows;
 using System.Windows.Controls;
+using 午休网易云播放器.Class;
+using Timer = System.Threading.Timer;
 
 namespace 午休网易云播放器.Pages
 {
@@ -8,12 +12,6 @@ namespace 午休网易云播放器.Pages
     /// </summary>
     public partial class HomePage : Page
     {
-        // 计时器
-        private Timer timer;
-
-        // 当前时间
-        DateTime nowTime;
-
         public HomePage()
         {
             InitializeComponent();
@@ -21,57 +19,80 @@ namespace 午休网易云播放器.Pages
             // 判断是否已经点击按钮
             if (StaticData.IsStartButtonClick)
             {
-                StartButton.IsEnabled = false;
-                StartButton.Content = "已启动";
+                StartButton.Content = "取消";
+                CountDownTextBlock.Text = $"即将在 {StaticData.WillBeginHour}:{StaticData.WillBeginMinute} 播放 \"{StaticData.WillBeginMusic}\"";
+            }
+            else
+            {
+                StartButton.Content = "启动";
+                CountDownTextBlock.Text = "\u2190 前往 “音乐” 设置歌曲";
             }
         }
 
-        // 点击时获取音乐的名字避免再次修改
-        private string willBeginMusic;
+        // 定义计时器
+        private MainTimer mainTimer = new();
 
-        // 计时器函数
-        private void UpdateUITimerCallback(object state)
+        // 更新页面
+        public void UpdatePageAfterStartMusic()
         {
-            Dispatcher.Invoke(() =>
-            {
-                nowTime = DateTime.Now;
-
-                if (nowTime.Hour == StaticData.BeginHour && nowTime.Minute == StaticData.BeginMinute)
-                {
-                    MethodClass methodClass = new();
-                    methodClass.TaskStartMusic(willBeginMusic, StaticData.LateTime);
-                    // 删除音乐
-                    StaticData.MusicDataList[0] = "";
-                    // 音乐排序
-                    methodClass.MusicSort();
-
-                    Environment.Exit(0);
-                }
-            });
+            StartButton.Content = "启动";
+            CountDownTextBlock.Text = "\u2190 前往 “音乐” 设置歌曲";
         }
 
+        // 点击开始按钮
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            if (StaticData.MusicDataList[0] == "")
+            if (StaticData.IsStartButtonClick)
             {
-                MessageBox.Show("请在 歌曲 中添加至少一首音乐");
+                mainTimer.CloseTimer();
+
+                // 状态更新
+                StaticData.IsStartButtonClick = false;
+                StartButton.Content = "启动";
+                CountDownTextBlock.Text = "\u2190 前往 “音乐” 设置歌曲";
+
+                // 通知
+                new ToastContentBuilder()
+                    .AddArgument("action", "viewConversation")
+                    .AddArgument("conversationId", 9813)
+                    .AddText("已取消倒计时播放")
+                    .AddText($"已取消计划在 {StaticData.WillBeginHour}:{StaticData.WillBeginMinute} 播放 \"{StaticData.WillBeginMusic}\"")
+                    .Show();
+
                 return;
             }
 
-            willBeginMusic = StaticData.MusicDataList[0];
-            // 开始计时器
-            timer = new Timer(UpdateUITimerCallback, null, 0, 1000);
+            // 如果列表中没有歌曲
+            if (StaticData.MusicDataList[0] == "")
+            {
+                MessageBox.Show("请在 音乐 中添加至少一首音乐");
+                return;
+            }
 
+            // 储存即将播放的音乐
+            StaticData.WillBeginMusic = StaticData.MusicDataList[0];
+            // 储存即将播放的时间
+            StaticData.WillBeginHour = StaticData.BeginHour;
+            StaticData.WillBeginMinute = StaticData.BeginMinute;
 
+            mainTimer.SetTimer();
 
-            StartButton.IsEnabled = false;
+            // 按钮显示取消
+            StartButton.Content = "取消";
 
-            StartButton.Content = "已启动";
-
+            // 保存按钮状态
             StaticData.IsStartButtonClick = true;
 
-            //MethodClass methodClass = new();
-            //methodClass.TaskStartMusic();
+            // 调整主页显示状态
+            CountDownTextBlock.Text = $"即将在 {StaticData.WillBeginHour}:{StaticData.WillBeginMinute} 播放 \"{StaticData.WillBeginMusic}\"";
+
+            // 通知
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddArgument("conversationId", 9813)
+                .AddText("已启动倒计时播放")
+                .AddText($"即将在 {StaticData.WillBeginHour}:{StaticData.WillBeginMinute} 播放 \"{StaticData.WillBeginMusic}\"")
+                .Show();
         }
     }
 }

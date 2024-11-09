@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using 午休网易云播放器;
+using 午休网易云播放器.Class;
 
 namespace 午休网易云播放器.Pages
 {
@@ -13,12 +13,15 @@ namespace 午休网易云播放器.Pages
         {
             InitializeComponent();
 
-            // 显示数据
+            // 时间显示
             HourTextBlock.Text = $"{StaticData.BeginHour}";
             MinuteTextBlock.Text = $"{StaticData.BeginMinute}";
+
+            // 延迟时间显示
             LateTimeTextBox.Text = $"{StaticData.LateTime}";
 
-            MusicNameTextBox.Text = StaticData.TestMusicName;
+            // 快捷测试歌曲显示
+            FastTestMusicNameTextBox.Text = StaticData.TestMusicName;
         }
 
         // 设置时间按钮
@@ -53,20 +56,19 @@ namespace 午休网易云播放器.Pages
             {
                 MessageBox.Show("请输入正确时间！");
             }
-
         }
 
-        // 设置音乐名称
+        // 设置快捷测试音乐名称
         private void SetMusicNameButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MusicNameTextBox.Text == "")
+            if (FastTestMusicNameTextBox.Text == "")
             {
-                MessageBox.Show("请输入歌曲名称");
+                MessageBox.Show("请输入快捷测试音乐名称");
                 return;
             }
 
-            StaticData.TestMusicName = MusicNameTextBox.Text;
-            MessageBox.Show($"音乐 {StaticData.TestMusicName} 设置成功！");
+            StaticData.TestMusicName = FastTestMusicNameTextBox.Text;
+            MessageBox.Show($"快捷测试音乐 {StaticData.TestMusicName} 设置成功");
         }
 
         // 快捷测试
@@ -83,6 +85,7 @@ namespace 午休网易云播放器.Pages
             Environment.Exit(0);
         }
 
+        // 延时按钮
         private void LateTimeButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -99,7 +102,6 @@ namespace 午休网易云播放器.Pages
 
                     MessageBox.Show($"延迟 {StaticData.LateTime} 毫秒设置成功！");
                 }
-                
             }
             catch (System.FormatException)
             {

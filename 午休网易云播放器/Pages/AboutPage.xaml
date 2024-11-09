@@ -3,7 +3,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="300" d:DesignWidth="500"
       Title="AboutPage">
 
@@ -11,22 +11,22 @@
         <StackPanel Margin="5">
             <TextBlock x:Name="TitleTextBlock" Margin="0,0,0,5" FontSize="16"></TextBlock>
 
-            <Border Margin="0,0,0,5" Width="auto" Height="auto" 
+            <Border Margin="0,0,0,5" Width="auto" Height="auto"
                     Background="White"
-                    BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5" >
+                    BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5">
                 <TextBlock x:Name="VersionTextBlock" Margin="5" Height="20" Width="auto" Text="版本：" FontSize="16" TextAlignment="Center"
                            HorizontalAlignment="Left"></TextBlock>
             </Border>
-            <Border Margin="0,0,0,5" Width="auto" Height="auto" 
+            <Border Margin="0,0,0,5" Width="auto" Height="auto"
                     Background="White"
-                    BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5" >
+                    BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5">
                     <TextBlock Margin="5" Height="20" Width="auto" Text="作者：AzureFantasy" FontSize="16" TextAlignment="Center"
-                               HorizontalAlignment="Left"/>
+                               HorizontalAlignment="Left" />
             </Border>
 
-            <Border Margin="0,0,0,5" Width="auto" Height="auto" 
+            <Border Margin="0,0,0,5" Width="auto" Height="auto"
                     Background="White"
-                    BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5" >
+                    BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5">
                 <TextBlock Margin="5" Height="20" Width="auto" Text="注意：正常使用请确保屏幕 分辨率 “1920×1080” 缩放 “1.00×”" FontSize="16" TextAlignment="Center"
                            HorizontalAlignment="Left"></TextBlock>
             </Border>

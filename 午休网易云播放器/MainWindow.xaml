@@ -4,39 +4,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Icon="Resourses/Icons/MainIcon.ico"
-        Height="300" Width="600" 
-        MinHeight="300" MinWidth="600" >
+        Icon="/Resources/Icons/MainIcon.ico"
+        Height="300" Width="600"
+        MinHeight="300" MinWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
         <!-- 侧边栏按钮 -->
         <StackPanel Grid.Column="0">
             <!-- 主页按钮 -->
-            <Button Margin="5" Height="40" Content="主页" FontSize="16" 
+            <Button Margin="5" Height="40" Content="主页" FontSize="16"
                     Background="#cbcccc"
-                    BorderThickness="0" 
-                    Click="HomePageButton_Click" >
+                    BorderThickness="0"
+                    Click="HomePageButton_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="5" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
             <!-- 音乐按钮 -->
-            <Button Margin="5" Height="40" Content="音乐" FontSize="16" 
+            <Button Margin="5,0,5,5" Height="40" Content="音乐" FontSize="16"
                     Background="#cbcccc"
-                    BorderThickness="0" 
-                    Click="MusicDataPageButton_Click" >
+                    BorderThickness="0"
+                    Click="MusicDataPageButton_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="5" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
@@ -44,12 +43,12 @@
             <!-- 设置按钮 -->
             <Button Margin="5,0,5,5" Height="40" Content="设置" FontSize="16"
                     Background="#cbcccc"
-                    BorderThickness="0" 
+                    BorderThickness="0"
                     Click="SettingPageButton_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="5" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
@@ -57,12 +56,12 @@
             <!-- 关于 -->
             <Button Margin="5,0,5,5" Height="40" Content="关于" FontSize="16"
                     Background="#cbcccc"
-                    BorderThickness="0"  
+                    BorderThickness="0"
                     Click="AboutPageButton_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="5" Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
@@ -71,7 +70,7 @@
 
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <ScrollViewer.Content>
-                <Frame  x:Name="MainFrame" Source="Pages/HomePage.xaml" NavigationUIVisibility="Hidden" Height="auto"/>
+                <Frame x:Name="MainFrame" Source="Pages/HomePage.xaml" NavigationUIVisibility="Hidden" Height="auto" />
             </ScrollViewer.Content>
         </ScrollViewer>
     </Grid>
