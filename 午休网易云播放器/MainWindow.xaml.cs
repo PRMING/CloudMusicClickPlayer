@@ -1,8 +1,7 @@
-﻿using System.ComponentModel;
-using Hardcodet.Wpf.TaskbarNotification;
-using System.Windows;
-using Windows.Foundation.Collections;
+﻿using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.Toolkit.Uwp.Notifications;
+using System.ComponentModel;
+using System.Windows;
 using 午休网易云播放器.Class;
 
 namespace 午休网易云播放器
@@ -38,7 +37,7 @@ namespace 午休网易云播放器
         }
 
         // 关闭窗口 触发的事件
-        private void WindowClosing( object sender, CancelEventArgs e )
+        private void WindowClosing(object sender, CancelEventArgs e)
         {
             // 通知
             new ToastContentBuilder()
@@ -49,7 +48,7 @@ namespace 午休网易云播放器
                 .Show();
         }
 
-private void HomePageButton_Click(object sender, RoutedEventArgs e)
+        private void HomePageButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Source = new Uri("Pages/HomePage.xaml", UriKind.RelativeOrAbsolute);
         }

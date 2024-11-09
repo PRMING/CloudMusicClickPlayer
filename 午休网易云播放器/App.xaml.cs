@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using System.Windows;
 using Windows.Foundation.Collections;
-using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace 午休网易云播放器
 {
@@ -9,7 +9,7 @@ namespace 午休网易云播放器
     /// </summary>
     public partial class App : Application
     {
-        App()
+        private App()
         {
             // 监听通知激活(点击)
             ToastNotificationManagerCompat.OnActivated += toastArgs =>

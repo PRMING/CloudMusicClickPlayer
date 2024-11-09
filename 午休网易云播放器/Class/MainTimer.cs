@@ -1,7 +1,4 @@
 ﻿using System.Timers;
-using System.Windows.Threading;
-using 午休网易云播放器.PageControllers;
-using 午休网易云播放器.Pages;
 using Timer = System.Timers.Timer;
 
 namespace 午休网易云播放器.Class;

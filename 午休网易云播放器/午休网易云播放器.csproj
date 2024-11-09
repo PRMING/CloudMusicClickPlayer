@@ -7,13 +7,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <SignAssembly>False</SignAssembly>
-    <AssemblyVersion>1.2.0.2</AssemblyVersion>
-    <FileVersion>1.2.0.2</FileVersion>
+    <AssemblyVersion>1.2.0.3</AssemblyVersion>
+    <FileVersion>1.2.0.3</FileVersion>
     <PackageIcon>favicon-128.png</PackageIcon>
     <Copyright>© AzureFantasy 2024</Copyright>
     <NeutralLanguage>zh-CN</NeutralLanguage>
     <ApplicationIcon>MainIcon.ico</ApplicationIcon>
-    <Version>1.2.0.2</Version>
+    <Version>1.2.0.3</Version>
     <StartupObject>午休网易云播放器.App</StartupObject>
     <Title></Title>
   </PropertyGroup>

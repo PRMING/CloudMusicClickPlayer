@@ -46,7 +46,14 @@ namespace 午休网易云播放器.Class
         {
             get
             {
-                return new DelegateCommand { CommandAction = () => Application.Current.Shutdown() };
+                return new DelegateCommand
+                {
+                    CommandAction = () =>
+                    {
+                        // Application.Current.Shutdown();
+                        Environment.Exit(0);
+                    }
+                };
             }
         }
     }

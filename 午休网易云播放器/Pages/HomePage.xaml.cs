@@ -1,9 +1,7 @@
-﻿using System.Timers;
-using Microsoft.Toolkit.Uwp.Notifications;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
 using System.Windows;
 using System.Windows.Controls;
 using 午休网易云播放器.Class;
-using Timer = System.Threading.Timer;
 
 namespace 午休网易云播放器.Pages
 {
