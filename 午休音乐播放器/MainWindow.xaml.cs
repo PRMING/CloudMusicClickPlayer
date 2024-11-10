@@ -2,9 +2,9 @@
 using Microsoft.Toolkit.Uwp.Notifications;
 using System.ComponentModel;
 using System.Windows;
-using 午休网易云播放器.Class;
+using 午休音乐播放器.Class;
 
-namespace 午休网易云播放器
+namespace 午休音乐播放器
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -53,7 +53,6 @@ namespace 午休网易云播放器
                 .Show();
         }
 
-        
         // 切换界面
         private void HomePageButton_Click(object sender, RoutedEventArgs e)
         {

@@ -1,4 +1,4 @@
-﻿<Window x:Class="午休网易云播放器.MainWindow"
+﻿<Window x:Class="午休音乐播放器.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -30,12 +30,11 @@
                 <!-- 按钮内容 -->
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/Icons/Home.png" Height="16" Margin="0,0,5,0"
-                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                           RenderOptions.BitmapScalingMode="HighQuality" />
                     <TextBlock VerticalAlignment="Center">主页</TextBlock>
                 </StackPanel>
             </Button>
-            
-            
+
             <!-- 音乐按钮 -->
             <Button Margin="5,0,5,5" Height="40" FontSize="16"
                     Background="#cbcccc"
@@ -51,12 +50,11 @@
                 <!-- 按钮内容 -->
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/Icons/Music.png" Height="16" Margin="0,0,5,0"
-                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                           RenderOptions.BitmapScalingMode="HighQuality" />
                     <TextBlock VerticalAlignment="Center">音乐</TextBlock>
                 </StackPanel>
             </Button>
-            
-            
+
             <!-- 设置按钮 -->
             <Button Margin="5,0,5,5" Height="40" FontSize="16"
                     Background="#cbcccc"
@@ -72,12 +70,11 @@
                 <!-- 按钮内容 -->
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/Icons/Setting.png" Height="16" Margin="0,0,5,0"
-                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                           RenderOptions.BitmapScalingMode="HighQuality" />
                     <TextBlock VerticalAlignment="Center">设置</TextBlock>
                 </StackPanel>
             </Button>
-            
-            
+
             <!-- 关于按钮 -->
             <Button Margin="5,0,5,5" Height="40" FontSize="16"
                     Background="#cbcccc"
@@ -93,7 +90,7 @@
                 <!-- 按钮内容 -->
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/Icons/About.png" Height="16" Margin="0,0,5,0"
-                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                           RenderOptions.BitmapScalingMode="HighQuality" />
                     <TextBlock VerticalAlignment="Center">关于</TextBlock>
                 </StackPanel>
             </Button>

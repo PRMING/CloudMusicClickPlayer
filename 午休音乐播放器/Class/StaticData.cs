@@ -1,12 +1,12 @@
-﻿namespace 午休网易云播放器.Class
+﻿namespace 午休音乐播放器.Class
 {
     public static class StaticData
     {
-        public static string AppName = "午休网易云播放器";
+        public static string AppName = "午休音乐播放器";
 
         public static int BeginHour;
         public static int BeginMinute;
-        
+
         // 启动音乐方式
         public static int StartMusicMethodType;
 
@@ -20,7 +20,7 @@
 
         //开启循环按钮状态
         public static bool IsStartButtonClick = false;
-        
+
         // 当前打开页面
         public static string StartPage = "HomePage";
 
@@ -29,14 +29,14 @@
 
         // 音乐列表数据
         public static List<string> MusicDataList = new();
-        
+
         // 构造函数
         public static void SetStaticData()
         {
             GetData();
             GetMusicListData();
         }
-        
+
         // 从本地获取数据
         private static void GetData()
         {
@@ -44,7 +44,6 @@
             BeginMinute = Settings.Default.BeginMinute;
             LateTime = Settings.Default.LateTime;
             StartMusicMethodType = Settings.Default.StartMusicMethodType;
-
         }
 
         // 从Setting获取MusicListData

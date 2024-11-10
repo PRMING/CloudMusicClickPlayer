@@ -3,11 +3,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using 午休网易云播放器.Class;
-using Brush = System.Drawing.Brush;
-using Uri = ABI.System.Uri;
+using 午休音乐播放器.Class;
 
-namespace 午休网易云播放器.Pages
+namespace 午休音乐播放器.Pages
 {
     /// <summary>
     /// HomePage.xaml 的交互逻辑
@@ -32,30 +30,30 @@ namespace 午休网易云播放器.Pages
                 StartButton.Content = "启动";
                 CountDownTextBlock.Text = tip;
             }
-            
+
             switch (StaticData.StartMusicMethodType)
             {
                 case 0:
-                {
-                    MainTitleIcon.Source =  new BitmapImage(new System.Uri("/Resources/Icons/QQMusic.ico",UriKind.Relative));
-                    MainTitle.Text = "QQ音乐播放器";
-                    StartButton.Background = new SolidColorBrush(new Color() { R = 255, G = 220, B = 0, A = 255 });// #ffdc00 背景黄色
-                    StartButton.Foreground = new SolidColorBrush(new Color() { R = 17, G = 190, B = 115, A = 255 });// #11be73 文字绿色
-                    break;
-                }
+                    {
+                        MainTitleIcon.Source = new BitmapImage(new System.Uri("/Resources/Icons/QQMusic.ico", UriKind.Relative));
+                        MainTitle.Text = "QQ音乐播放器";
+                        StartButton.Background = new SolidColorBrush(new Color() { R = 255, G = 220, B = 0, A = 255 });// #ffdc00 背景黄色
+                        StartButton.Foreground = new SolidColorBrush(new Color() { R = 17, G = 190, B = 115, A = 255 });// #11be73 文字绿色
+                        break;
+                    }
                 case 1:
-                {
-                    // #fd2b56
-                    MainTitleIcon.Source =  new BitmapImage(new System.Uri("/Resources/Icons/CloudMusic.ico",UriKind.Relative));
-                    MainTitle.Text = "网易云音乐播放器";
-                    StartButton.Background = new SolidColorBrush(new Color() { R = 253, G = 43, B = 86, A = 255 });// #fd2b56 背景红色
-                    break;
-                }
+                    {
+                        // #fd2b56
+                        MainTitleIcon.Source = new BitmapImage(new System.Uri("/Resources/Icons/CloudMusic.ico", UriKind.Relative));
+                        MainTitle.Text = "网易云音乐播放器";
+                        StartButton.Background = new SolidColorBrush(new Color() { R = 253, G = 43, B = 86, A = 255 });// #fd2b56 背景红色
+                        break;
+                    }
             }
         }
-        
+
         // 主页提示语
-        string tip = "\u2190  “音乐” 中可设置歌曲，“设置”中可选择启动平台";
+        private string tip = "\u2190  “音乐” 中可设置歌曲，“设置”中可选择启动平台";
 
         // 定义计时器
         private MainTimer mainTimer = new();

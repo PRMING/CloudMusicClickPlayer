@@ -1,8 +1,8 @@
-﻿using System.Timers;
-using Microsoft.Toolkit.Uwp.Notifications;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace 午休网易云播放器.Class;
+namespace 午休音乐播放器.Class;
 
 public class MainTimer
 {
@@ -49,7 +49,7 @@ public class MainTimer
                     .AddText("开始播放音乐")
                     .AddText($"已开始播放 {StaticData.WillBeginMusic} 歌曲")
                     .Show();
-                
+
                 // 关闭计时器
                 CloseTimer();
 
@@ -58,10 +58,11 @@ public class MainTimer
                 // 选择播放平台
                 switch (StaticData.StartMusicMethodType)
                 {
-                    case 0: 
+                    case 0:
                         await methodClass.TaskStartQQMusic(StaticData.WillBeginMusic, StaticData.LateTime);
                         break;
-                    case 1: 
+
+                    case 1:
                         await methodClass.TaskStartCloudMusic(StaticData.WillBeginMusic, StaticData.LateTime);
                         break;
                 }

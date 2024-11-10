@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35424.110
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "午休网易云播放器", "午休网易云播放器\午休网易云播放器.csproj", "{F0B01162-E1AC-443B-A8F0-018D9B682DBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "午休音乐播放器", "午休音乐播放器\午休音乐播放器.csproj", "{F0B01162-E1AC-443B-A8F0-018D9B682DBE}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{14676F52-502C-4B76-AF40-AC6DEC1D1685}"
 EndProject

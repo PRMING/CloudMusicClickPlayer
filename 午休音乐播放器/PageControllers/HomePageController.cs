@@ -1,6 +1,6 @@
-﻿using 午休网易云播放器.Pages;
+﻿using 午休音乐播放器.Pages;
 
-namespace 午休网易云播放器.PageControllers
+namespace 午休音乐播放器.PageControllers
 {
     public class HomePageController
     {

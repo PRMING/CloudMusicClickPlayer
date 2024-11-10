@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace 午休网易云播放器 {
+namespace 午休音乐播放器 {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

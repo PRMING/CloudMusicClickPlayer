@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace 午休网易云播放器.Class
+namespace 午休音乐播放器.Class
 {
     public class DelegateCommand : ICommand
     {

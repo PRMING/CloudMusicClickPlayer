@@ -1,10 +1,10 @@
-﻿using System.IO;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using Microsoft.Toolkit.Uwp.Notifications;
-using 午休网易云播放器.Class;
+using 午休音乐播放器.Class;
 
-namespace 午休网易云播放器.Pages
+namespace 午休音乐播放器.Pages
 {
     /// <summary>
     /// SettingPage.xaml 的交互逻辑
@@ -14,7 +14,7 @@ namespace 午休网易云播放器.Pages
         public SettingPage()
         {
             InitializeComponent();
-            
+
             // 设置当前页面
             StaticData.StartPage = "SettingPage";
 
@@ -29,9 +29,9 @@ namespace 午休网易云播放器.Pages
             FastTestMusicNameTextBox.Text = StaticData.TestMusicName;
 
             // 目录显示路径以及 悬浮
-            LocalDataFileTextBlock.Text = $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休网易云播放器";
-            LocalDataFileTextBlock.ToolTip = $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休网易云播放器";
-            
+            LocalDataFileTextBlock.Text = $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休音乐播放器";
+            LocalDataFileTextBlock.ToolTip = $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休音乐播放器";
+
             // 下拉框选择音乐播放方法显示
             StartMusicMethodTypeComboBox.SelectedIndex = StaticData.StartMusicMethodType;
         }
@@ -91,20 +91,21 @@ namespace 午休网易云播放器.Pages
             {
                 beginMusicName = StaticData.TestMusicName;
             }
-            
+
             MethodClass methodClass = new();
-            
+
             // 选择播放平台
             switch (StaticData.StartMusicMethodType)
             {
                 case 0:
                     await methodClass.TaskStartQQMusic(beginMusicName, StaticData.LateTime);
                     break;
+
                 case 1:
                     await methodClass.TaskStartCloudMusic(beginMusicName, StaticData.LateTime);
                     break;
             }
-            
+
             // 通知
             new ToastContentBuilder()
                 .AddArgument("action", "viewConversation")
@@ -142,22 +143,24 @@ namespace 午休网易云播放器.Pages
         private void OpenLocalDataFileButtonClick(object sender, RoutedEventArgs e)
         {
             //打开目录
-            System.Diagnostics.Process.Start( "explorer.exe" , $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休网易云播放器" );
+            System.Diagnostics.Process.Start("explorer.exe", $"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休音乐播放器");
         }
 
         // 清除数据按钮
         private void RemoveLocalData(object sender, RoutedEventArgs e)
         {
-            DirectoryInfo di = new DirectoryInfo($"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休网易云播放器");
-            
+            DirectoryInfo di = new DirectoryInfo($"C:\\Users\\{Environment.UserName}\\AppData\\Local\\午休音乐播放器");
+
             // 获取并删除所有文件
             FileInfo[] files = di.GetFiles();
-            foreach (FileInfo file in files) {
+            foreach (FileInfo file in files)
+            {
                 file.Delete();
             }
             // 获取并删除所有目录
             DirectoryInfo[] subDirectories = di.GetDirectories();
-            foreach (DirectoryInfo subDirectory in subDirectories) {
+            foreach (DirectoryInfo subDirectory in subDirectories)
+            {
                 subDirectory.Delete(true);
             }
         }
@@ -169,13 +172,16 @@ namespace 午休网易云播放器.Pages
             StaticData.StartMusicMethodType = StartMusicMethodTypeComboBox.SelectedIndex;
             Settings.Default.StartMusicMethodType = StartMusicMethodTypeComboBox.SelectedIndex;
             Settings.Default.Save();
-                
+
             // 显示提示框
             switch (StartMusicMethodTypeComboBox.SelectedIndex)
             {
-                case 0: MessageBox.Show("已设置QQ音乐播放");
+                case 0:
+                    MessageBox.Show("已设置QQ音乐播放");
                     break;
-                case 1: MessageBox.Show("已设置网易云音乐播放");
+
+                case 1:
+                    MessageBox.Show("已设置网易云音乐播放");
                     break;
             }
         }

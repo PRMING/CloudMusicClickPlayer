@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using 午休网易云播放器.Class;
+using 午休音乐播放器.Class;
 
-namespace 午休网易云播放器.Pages
+namespace 午休音乐播放器.Pages
 {
     /// <summary>
     /// AboutPage.xaml 的交互逻辑
@@ -12,7 +12,7 @@ namespace 午休网易云播放器.Pages
         public AboutPage()
         {
             InitializeComponent();
-            
+
             // 设置当前页面
             StaticData.StartPage = "AboutPage";
 

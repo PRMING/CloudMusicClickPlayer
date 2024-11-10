@@ -2,7 +2,7 @@
 using System.Windows;
 using Windows.Foundation.Collections;
 
-namespace 午休网易云播放器
+namespace 午休音乐播放器
 {
     /// <summary>
     /// Interaction logic for App.xaml
