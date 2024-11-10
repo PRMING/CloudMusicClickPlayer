@@ -6,6 +6,7 @@
       mc:Ignorable="d"
       d:DesignHeight="300" d:DesignWidth="500"
       Background="#f3f5f9"
+      FontFamily="{StaticResource FontMiSans-Regular}"
       Title="HomePage">
 
     <Grid Background="#e5e5e5">
@@ -25,15 +26,20 @@
                 <Border Grid.Row="0" Margin="0,0,0,5" Width="auto" Height="auto"
                         Background="White"
                         BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5">
-                    <TextBlock Text="午休网易云播放器" FontSize="40" FontWeight="Bold" FontFamily="Segoe UI"
-                               HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image x:Name="MainTitleIcon" Source="/Resources/Icons/MainIcon.ico" Margin="0,4,10,0" Height="40" 
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <TextBlock x:Name="MainTitle" FontSize="40" Text="默认标题" FontWeight="Bold" FontFamily="{StaticResource Font腾讯和平精英体Bold}" TextAlignment="Center"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    
                 </Border>
 
                 <Border Grid.Row="1" Width="auto" Height="auto"
                         Background="White"
                         BorderThickness="1"  BorderBrush="#dbdbdb" CornerRadius="5">
                     <Border CornerRadius="5">
-                        <TextBlock x:Name="CountDownTextBlock" Width="auto" Height="auto" Text="← 前往 “音乐” 设置歌曲" FontSize="16"
+                        <TextBlock x:Name="CountDownTextBlock" Width="auto" Height="auto" Text="← 前往 “音乐” 设置歌曲，“设置”中可选择播放平台" FontSize="16"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                     </Border>
                 </Border>
@@ -42,14 +48,14 @@
             <Border Grid.Row="1" Margin="0,5,0,0"  Width="auto" Height="auto"
                     Background="White"
                     BorderThickness="1"  BorderBrush="#dbdbdb" CornerRadius="5">
-                <Button x:Name="StartButton" Width="100" Height="40" Content="启动" FontSize="16" Foreground="white"
+                <Button x:Name="StartButton" Width="100" Height="40" Content="启动" FontSize="16" Foreground="white" FontWeight="Bold"
                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                        BorderThickness="0" Background="#3e3f40"
+                        BorderThickness="0" Background="#fd2b56"
                         IsEnabled="True"
                         Click="StartButton_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}">
                                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Border>
                         </ControlTemplate>

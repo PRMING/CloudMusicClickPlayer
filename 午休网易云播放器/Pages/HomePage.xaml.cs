@@ -1,7 +1,11 @@
 ﻿using Microsoft.Toolkit.Uwp.Notifications;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using 午休网易云播放器.Class;
+using Brush = System.Drawing.Brush;
+using Uri = ABI.System.Uri;
 
 namespace 午休网易云播放器.Pages
 {
@@ -14,6 +18,9 @@ namespace 午休网易云播放器.Pages
         {
             InitializeComponent();
 
+            // 设置当前页面
+            StaticData.StartPage = "HomePage";
+
             // 判断是否已经点击按钮
             if (StaticData.IsStartButtonClick)
             {
@@ -23,9 +30,32 @@ namespace 午休网易云播放器.Pages
             else
             {
                 StartButton.Content = "启动";
-                CountDownTextBlock.Text = "\u2190 前往 “音乐” 设置歌曲";
+                CountDownTextBlock.Text = tip;
+            }
+            
+            switch (StaticData.StartMusicMethodType)
+            {
+                case 0:
+                {
+                    MainTitleIcon.Source =  new BitmapImage(new System.Uri("/Resources/Icons/QQMusic.ico",UriKind.Relative));
+                    MainTitle.Text = "QQ音乐播放器";
+                    StartButton.Background = new SolidColorBrush(new Color() { R = 255, G = 220, B = 0, A = 255 });// #ffdc00 背景黄色
+                    StartButton.Foreground = new SolidColorBrush(new Color() { R = 17, G = 190, B = 115, A = 255 });// #11be73 文字绿色
+                    break;
+                }
+                case 1:
+                {
+                    // #fd2b56
+                    MainTitleIcon.Source =  new BitmapImage(new System.Uri("/Resources/Icons/CloudMusic.ico",UriKind.Relative));
+                    MainTitle.Text = "网易云音乐播放器";
+                    StartButton.Background = new SolidColorBrush(new Color() { R = 253, G = 43, B = 86, A = 255 });// #fd2b56 背景红色
+                    break;
+                }
             }
         }
+        
+        // 主页提示语
+        string tip = "\u2190  “音乐” 中可设置歌曲，“设置”中可选择启动平台";
 
         // 定义计时器
         private MainTimer mainTimer = new();
@@ -34,7 +64,7 @@ namespace 午休网易云播放器.Pages
         public void UpdatePageAfterStartMusic()
         {
             StartButton.Content = "启动";
-            CountDownTextBlock.Text = "\u2190 前往 “音乐” 设置歌曲";
+            CountDownTextBlock.Text = tip;
         }
 
         // 点击开始按钮
@@ -47,7 +77,7 @@ namespace 午休网易云播放器.Pages
                 // 状态更新
                 StaticData.IsStartButtonClick = false;
                 StartButton.Content = "启动";
-                CountDownTextBlock.Text = "\u2190 前往 “音乐” 设置歌曲";
+                CountDownTextBlock.Text = tip;
 
                 // 通知
                 new ToastContentBuilder()

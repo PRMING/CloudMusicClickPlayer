@@ -5,11 +5,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
       d:DesignHeight="300" d:DesignWidth="500"
+      FontFamily="{StaticResource FontMiSans-Regular}"
       Title="SettingPage">
 
     <Grid Background="#e5e5e5">
 
-        <Grid Margin="5">
+        <Grid Margin="5,5,15,5">
             <StackPanel>
 
                 <!-- 播放时间 -->
@@ -63,7 +64,7 @@
                     </Grid>
                 </Border>
 
-                <!-- 歌曲名称 -->
+                <!-- 快捷测试歌曲名称 -->
                 <TextBlock Margin="0,5,0,5" Text="快捷测试音乐：" FontSize="16"></TextBlock>
                 <Border Margin="0,0,0,5"
                         Background="White"
@@ -112,6 +113,101 @@
                                 HorizontalAlignment="Right"
                                 BorderThickness="0" Background="#3e3f40"
                                 Click="LateTimeButton_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+                </Border>
+                
+                <!-- 启动平台： -->
+                <TextBlock Margin="0,5,0,5" Text="启动平台：" FontSize="16"></TextBlock>
+                <Border Margin="0,0,0,5"
+                        Background="White"
+                        BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <!-- 歌曲名称 -->
+                        
+                        <ComboBox x:Name="StartMusicMethodTypeComboBox" Grid.Column="0" Margin="0,0,5,0"
+                                  FontSize="16"
+                                  Background="#cbcccc">
+                            <!-- QQ音乐 -->
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal" 
+                                            VerticalAlignment="Center" >
+                                    <Image Source="/Resources/Icons/QQMusic.ico" Margin="0,0,5,0" Height="16"
+                                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    <TextBlock>QQ音乐</TextBlock>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            
+                            <!-- 网易云音乐 -->
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal"
+                                            VerticalAlignment="Center" >
+                                    <Image Source="/Resources/Icons/CloudMusic.ico" Margin="0,0,5,0" Height="16"
+                                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    <TextBlock>网易云音乐</TextBlock>
+                                </StackPanel>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <!--确定按钮-->
+                        <Button Grid.Column="1" Width="50" Height="25" Content="确定" FontSize="14" Foreground="white"
+                                HorizontalAlignment="Right"
+                                BorderThickness="0" Background="#3e3f40"
+                                Click="StartMusicMethodType">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+                </Border>
+                
+                <!-- 本地数据 -->
+                <TextBlock Margin="0,5,0,5" Text="本地数据：" FontSize="16"/>
+                <Border Margin="0,0,0,5"
+                        Background="White"
+                        BorderBrush="#dbdbdb" BorderThickness="1" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <!-- 目录 -->
+                        <TextBlock x:Name="LocalDataFileTextBlock" Margin="0,0,5,0" Grid.Column="0" Height="20" Width="auto" FontSize="16" TextAlignment="Center"
+                                   HorizontalAlignment="Left"/>
+                        
+                        <!--打开目录按钮-->
+                        <Button Grid.Column="1" Margin="0,0,85,0" Width="80" Height="25" Content="打开目录" FontSize="14" Foreground="white"
+                                HorizontalAlignment="Right"
+                                BorderThickness="0" Background="#3e3f40"
+                                Click="OpenLocalDataFileButtonClick">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        
+                        <!--清除缓存按钮-->
+                        <Button Grid.Column="1" Width="80" Height="25" Content="清除数据" FontSize="14" Foreground="white"
+                                HorizontalAlignment="Right"
+                                BorderThickness="0" Background="#3e3f40"
+                                Click="RemoveLocalData">
                             <Button.Template>
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Border CornerRadius="5" Background="{TemplateBinding Background}">

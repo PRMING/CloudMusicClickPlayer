@@ -12,6 +12,9 @@ namespace 午休网易云播放器.Pages
         public AboutPage()
         {
             InitializeComponent();
+            
+            // 设置当前页面
+            StaticData.StartPage = "AboutPage";
 
             TitleTextBlock.Text = $"关于 \"{StaticData.AppName}\"";
 

@@ -16,6 +16,14 @@ namespace 午休网易云播放器
 
         public MainWindow()
         {
+            // 条件编译
+#if DEBUG
+            Title = $"{StaticData.AppName} 开发版";
+#else
+            Title = $"{StaticData.AppName}";
+#endif
+
+            // 获取数据
             StaticData.SetStaticData();
 
             // 启动托盘图标
@@ -23,11 +31,8 @@ namespace 午休网易云播放器
 
             InitializeComponent();
 
-#if DEBUG
-            Title = $"{StaticData.AppName} 开发版";
-#else
-            Title = $"{StaticData.AppName}";
-#endif
+            // 启动检测打开界面
+            MainFrame.Source = new Uri($"Pages/{StaticData.StartPage}.xaml", UriKind.RelativeOrAbsolute);
 
             // 窗体居中
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -48,6 +53,8 @@ namespace 午休网易云播放器
                 .Show();
         }
 
+        
+        // 切换界面
         private void HomePageButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Source = new Uri("Pages/HomePage.xaml", UriKind.RelativeOrAbsolute);

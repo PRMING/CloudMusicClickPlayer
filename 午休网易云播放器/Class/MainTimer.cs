@@ -1,4 +1,5 @@
 ﻿using System.Timers;
+using Microsoft.Toolkit.Uwp.Notifications;
 using Timer = System.Timers.Timer;
 
 namespace 午休网易云播放器.Class;
@@ -35,26 +36,44 @@ public class MainTimer
     /// </summary>
     private void OnTimedEvent(Object source, ElapsedEventArgs e)
     {
-        Task.Run(() =>
+        Task.Run(async () =>
         {
             _nowTime = DateTime.Now;
 
             if (_nowTime.Hour == StaticData.WillBeginHour && _nowTime.Minute == StaticData.WillBeginMinute)
             {
+                // 通知
+                new ToastContentBuilder()
+                    .AddArgument("action", "viewConversation")
+                    .AddArgument("conversationId", 9813)
+                    .AddText("开始播放音乐")
+                    .AddText($"已开始播放 {StaticData.WillBeginMusic} 歌曲")
+                    .Show();
+                
                 // 关闭计时器
                 CloseTimer();
 
                 MethodClass methodClass = new();
-                methodClass.TaskStartMusic(StaticData.WillBeginMusic, StaticData.LateTime);
+
+                // 选择播放平台
+                switch (StaticData.StartMusicMethodType)
+                {
+                    case 0: 
+                        await methodClass.TaskStartQQMusic(StaticData.WillBeginMusic, StaticData.LateTime);
+                        break;
+                    case 1: 
+                        await methodClass.TaskStartCloudMusic(StaticData.WillBeginMusic, StaticData.LateTime);
+                        break;
+                }
 
                 // 删除音乐
                 StaticData.MusicDataList[0] = "";
 
                 // 音乐排序
-                methodClass.MusicSort();
+                methodClass.MusicListSort();
 
                 // 切换状态
-                StaticData.IsStartButtonClick = false;
+                // StaticData.IsStartButtonClick = false;
 
                 // 切换HomePage状态
                 //HomePage homePage = new();

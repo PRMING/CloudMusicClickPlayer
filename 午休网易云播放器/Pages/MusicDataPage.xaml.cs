@@ -12,6 +12,9 @@ namespace 午休网易云播放器.Pages
         public MusicDataPage()
         {
             InitializeComponent();
+            
+            // 设置当前页面
+            StaticData.StartPage = "MusicDataPage";
 
             SetTextBoxData();
         }

@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         Icon="/Resources/Icons/MainIcon.ico"
         Height="300" Width="600"
-        MinHeight="300" MinWidth="600">
+        MinHeight="300" MinWidth="600"
+        FontFamily="{StaticResource FontMiSans-Regular}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
@@ -15,7 +16,7 @@
         <!-- 侧边栏按钮 -->
         <StackPanel Grid.Column="0">
             <!-- 主页按钮 -->
-            <Button Margin="5" Height="40" Content="主页" FontSize="16"
+            <Button Margin="5" Height="40" FontSize="16"
                     Background="#cbcccc"
                     BorderThickness="0"
                     Click="HomePageButton_Click">
@@ -26,9 +27,17 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
+                <!-- 按钮内容 -->
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Home.png" Height="16" Margin="0,0,5,0"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <TextBlock VerticalAlignment="Center">主页</TextBlock>
+                </StackPanel>
             </Button>
+            
+            
             <!-- 音乐按钮 -->
-            <Button Margin="5,0,5,5" Height="40" Content="音乐" FontSize="16"
+            <Button Margin="5,0,5,5" Height="40" FontSize="16"
                     Background="#cbcccc"
                     BorderThickness="0"
                     Click="MusicDataPageButton_Click">
@@ -39,9 +48,17 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
+                <!-- 按钮内容 -->
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Music.png" Height="16" Margin="0,0,5,0"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <TextBlock VerticalAlignment="Center">音乐</TextBlock>
+                </StackPanel>
             </Button>
+            
+            
             <!-- 设置按钮 -->
-            <Button Margin="5,0,5,5" Height="40" Content="设置" FontSize="16"
+            <Button Margin="5,0,5,5" Height="40" FontSize="16"
                     Background="#cbcccc"
                     BorderThickness="0"
                     Click="SettingPageButton_Click">
@@ -52,9 +69,17 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
+                <!-- 按钮内容 -->
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Setting.png" Height="16" Margin="0,0,5,0"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <TextBlock VerticalAlignment="Center">设置</TextBlock>
+                </StackPanel>
             </Button>
-            <!-- 关于 -->
-            <Button Margin="5,0,5,5" Height="40" Content="关于" FontSize="16"
+            
+            
+            <!-- 关于按钮 -->
+            <Button Margin="5,0,5,5" Height="40" FontSize="16"
                     Background="#cbcccc"
                     BorderThickness="0"
                     Click="AboutPageButton_Click">
@@ -65,10 +90,16 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
+                <!-- 按钮内容 -->
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/About.png" Height="16" Margin="0,0,5,0"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <TextBlock VerticalAlignment="Center">关于</TextBlock>
+                </StackPanel>
             </Button>
         </StackPanel>
 
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
             <ScrollViewer.Content>
                 <Frame x:Name="MainFrame" Source="Pages/HomePage.xaml" NavigationUIVisibility="Hidden" Height="auto" />
             </ScrollViewer.Content>

@@ -141,5 +141,17 @@ namespace 午休网易云播放器 {
                 this["MusicName7"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int StartMusicMethodType {
+            get {
+                return ((int)(this["StartMusicMethodType"]));
+            }
+            set {
+                this["StartMusicMethodType"] = value;
+            }
+        }
     }
 }

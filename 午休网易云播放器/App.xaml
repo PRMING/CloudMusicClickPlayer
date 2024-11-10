@@ -6,14 +6,30 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
+                
                 <!-- 滚动条样式 -->
                 <ResourceDictionary Source="/Resources/XAML/ScrollViewer.xaml" />
 
-                <!-- 托盘 -->
-                <!-- 字典顺序不同会搜不到 -->
+                
+                <!-- 字典顺序不同会搜索不到 -->
+                <!-- 托盘右键菜单 -->
                 <ResourceDictionary Source="/Resources/XAML/SysTrayMenu.xaml" />
+                <!-- 托盘 -->
                 <ResourceDictionary Source="/Resources/XAML/SystemTray.xaml" />
+                
+                <ResourceDictionary>
+                    <!-- #号后为字体名称，不是文件名 -->
+                    <FontFamily x:Key="FontMiSans-Regular">Resources/Fonts/#MISans</FontFamily>
+                </ResourceDictionary>
+                
+                <ResourceDictionary>
+                    <FontFamily x:Key="Font江西拙楷">Resources/Fonts/江西拙楷.ttf#江西拙楷</FontFamily>
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                    <FontFamily x:Key="Font腾讯和平精英体Bold">Resources/Fonts/腾讯和平精英体Bold.ttf#腾讯和平精英体</FontFamily>
+                </ResourceDictionary>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
